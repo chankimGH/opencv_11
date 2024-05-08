@@ -1,4 +1,4 @@
-![image](https://github.com/chankimGH/opencv_11/assets/169237545/96f3b015-049f-48f0-9b2f-a311d5d8462d)# opencv_11
+# opencv_11
 
 Number 1
 구조 요소 행렬의 3가지 종류를 getStructuringElement() 함수에 대해 출력
