@@ -1,4 +1,4 @@
-/*
+//number 1
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
@@ -6,26 +6,23 @@ using namespace std;
 using namespace cv;
 
 int main(void) {
-	Mat src = imread("D:\\Users\\Admin\\opencv\\milkdrop.bmp", IMREAD_GRAYSCALE);
-	if (src.empty()) { cerr << "Image load failed!" << endl; return -1; }
-	Mat bin;
-	threshold(src, bin, 0, 255, THRESH_BINARY | THRESH_OTSU);
-	Mat dst1, dst2;
-	erode(bin, dst1, Mat()); //3x3 ±¸Á¶¿ä¼Ò »ç¿ë
-	dilate(bin, dst2, Mat()); //3x3 ±¸Á¶¿ä¼Ò »ç¿ë
-	imshow("src", src);
-	imshow("bin", bin);
-	imshow("erode", dst1);
-	imshow("dilate", dst2);
-	waitKey();
-	destroyAllWindows();
-	return 0;
+	Mat rect, cross, ellipes;
+	rect = getStructuringElement(MORPH_RECT, Size(3, 3));
+	cross = getStructuringElement(MORPH_CROSS, Size(3, 3));
+	ellipes = getStructuringElement(MORPH_ELLIPSE, Size(5, 3));
 
+	cout << "MORPH_RECT" << endl;
+	cout << rect << endl;
+	cout << "MORPH_CROSS" << endl;
+	cout << cross << endl;
+	cout << "MORPH_ELLIPES" << endl;
+	cout << ellipes << endl;
+
+	return 0;
 }
-*/
+
 
 //number 2
-/*
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <random>
@@ -57,10 +54,10 @@ int main(void) {
 	return 0;
 }
 
-*/
+
 
 //Number 3
-/*
+
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
@@ -77,8 +74,6 @@ int main(void) {
 	waitKey();
 	return 0;
 }
-*/
-
 
 //Number 4
 
@@ -95,15 +90,15 @@ int main(void) {
 	waitKey(2000);
 	blur(src, src, Size(5, 5));
 	Sobel(src, src, -1, 1, 0);
-	imshow("xÃà ¹æÇâ ¼Òº§", src);
+	imshow("xì¶• ë°©í–¥ ì†Œë²¨", src);
 	waitKey(2000);
 	threshold(src, src, 150, 255, CV_8U);
-	imshow("ÀÌÁøÈ­ µÈ ¿µ»ó", src);
+	imshow("ì´ì§„í™” ëœ ì˜ìƒ", src);
 	waitKey(2000);
 	Mat M = getStructuringElement(MORPH_RECT, Size(50, 5));
 	morphologyEx(src, src, MORPH_CLOSE, M);
 	morphologyEx(src, src, MORPH_CLOSE, Mat(9, 3 ,CV_8U));
-	imshow("´İÈû ¿¬»ê", src);
+	imshow("ë‹«í˜ ì—°ì‚°", src);
 	waitKey();
 	return 0;
 }
